@@ -1,7 +1,7 @@
 {
-  "name": "slides",
-  "version": "1.1.0",
-  "description": "",
+  "name": "daaif/js-slides",
+  "version": "1.0.0",
+  "description": "Javascript slides",
   "main": "index.js",
   "scripts": {
     "serve": "ws --spa index.html"
