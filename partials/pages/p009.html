@@ -1,0 +1,29 @@
+<div class="container small">
+  <h1 class="text-center">A quel endroit ajouter son script ?</h1>
+  <p>
+    Les scripts <mark>Javascript</mark> peuvent être ajoutés à n'importe quel
+    endroit de la page. Cependant, si la taille du script est grande, cela
+    pourra pénaliser le chargement de la page.
+  </p>
+  <h3>Endroit conseillé</h3>
+  <p>
+    Toujour ajouter ses scripts juste avant la balise fermante
+    <code>&lt;/body&gt;</code>
+  </p>
+  <h3>Exemple</h3>
+  <textarea class="myCode">
+<html>
+  <head></head>
+  <body>
+    <!-- Votre contenu -->
+    <!-- A ce stade, tout le contenu de la page est chargé, (!) -->
+    <script src="script1.js"></script>
+    <script src="script2.js"></script>
+    <script>
+      console.log("tous les scripts sont chargés");
+    </script>
+  </body>
+</html>
+</textarea
+  >
+</div>

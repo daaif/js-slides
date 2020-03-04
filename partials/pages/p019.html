@@ -1,0 +1,64 @@
+<div class="container-lg">
+  <h2 class="text-center pt-2">
+    Ajouter / supprimer des classes CSS à un élément HTML
+  </h2>
+
+  <p class="small p-2">
+    On utilise l'attribut <code>element.classList</code> qui est un objet ayant
+    les méthodes (<code>add()</code>, <code>remove()</code>,
+    <code>toggle()</code>, <code>contains()</code>, ... ).
+  </p>
+  <div class="row small">
+    <div class="col-md-6">
+      <textarea class="myCode">
+<div class="ctn" id="box">
+  <h3>Mon titre</h3>
+  <!--/* Contenu des slides précédents */-->
+</div>
+<style>
+  .green {
+    color: green;
+  }
+  .hide {
+    display: none;
+  }
+  .reverse {
+    background : black;
+    color: white;
+    transition: background, color, 1s;
+  }
+</style>
+      </textarea>
+    </div>
+    <div class="col-md-6">
+      <div class="ctn" id="box" title="div avrc id='ctn' class='ctn'">
+        <h3 title="Balse h3">Mon titre</h3>
+        <p title="Un paragraphe">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae,
+          quidem?
+        </p>
+        <ul title="Une liste non ordonnée ul">
+          <li title="Un éélment de list li">Rouge</li>
+          <li title="Un éélment de list li">Vert</li>
+          <li title="Un éélment de list li">Bleu</li>
+        </ul>
+        <button class="btn btn-danger btn-block" title="Un bouton">
+          Commander
+        </button>
+        <style>
+          .green {
+            color: green;
+          }
+          .hide {
+            display: none;
+          }
+          .reverse {
+            background: black;
+            color: white;
+            transition: 2s;
+          }
+        </style>
+      </div>
+    </div>
+  </div>
+</div>

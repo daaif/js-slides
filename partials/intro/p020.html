@@ -1,0 +1,37 @@
+<div class="container-lg">
+  <h2 class="text-center pt-2">
+    Les Evénements du DOM
+  </h2>
+
+  <p class="small p-2">
+    A chaque élément HTML sont associés un ensemble d'événements qui sont tous
+    préfixés par <mark>on</mark>. Par exemple <code>onclick</code>,
+    <code>onkeydown</code>, <code>onload</code>, etc. Ceux-ci nous permettent de
+    réagir au moment opportun.
+
+    <textarea class="myCode">
+<div class="ctn" onmousemove="handleMove(event)">
+  <h2>Mon titre</h2>
+  <select onchange="handleChange(event)"">
+    <option value="">Sélectionner un produit</option>
+    <option>Fruit</option>
+    <option>Légume</option>
+  </select>
+  <div class="out out1" ></div>
+  <div class="out out2" ></div>
+</div>
+<script>
+  function handleChange(evt) {
+    const msg = "Vous avez sélectionné : <strong>" 
+                + evt.target.value + "</strong>";
+    document.querySelector('.ctn .out1').innerHTML = msg;
+  }
+  function handleMove(evt) {
+    const pos = "x : " + evt.clientX + " y : " + evt.clientY;
+    document.querySelector('.ctn .out2').innerHTML = pos;
+  }
+</script>
+      </textarea
+    >
+  </p>
+</div>

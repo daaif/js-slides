@@ -1,0 +1,48 @@
+<div class="container-lg">
+  <h2 class="text-center pt-2">
+    Lire / Modifier les attributs d'un élément HTML
+  </h2>
+  
+  <p class="small p-2">
+    On utilise <code>element.getAttribute()</code> pour la lecture et
+    <code>element.setAttribute()</code> pour l'écriture. Pour supprimer 
+    un attribut, on utilise <code>element.removeAttribute()</code>
+    </code>
+  </p>
+  <div class="row small">
+    <div class="col-md-6">
+      <textarea class="myCode">
+<div class="ctn" id="box">
+  <h3>Mon titre</h3>
+  <p>
+    Lorem, ipsum dolor sit amet consectetur 
+    adipisicing elit. Vitae, quidem?
+  </p>
+  <ul>
+    <li>Rouge</li>
+    <li>Vert</li>
+    <li>Bleu</li>
+  </ul>
+  <button class="btn btn-danger btn-block">
+    Commander
+  </button>
+</div>
+      </textarea>
+    </div>
+    <div class="col-md-6">
+      <div class="ctn" id="box" title="div avrc id='ctn' class='ctn'">
+        <h3 title="Balse h3">Mon titre</h3>
+        <p title="Un paragraphe">
+          Lorem, ipsum dolor sit amet consectetur 
+          adipisicing elit. Vitae, quidem?
+        </p>
+        <ul title="Une liste non ordonnée ul">
+          <li title="Un éélment de list li">Rouge</li>
+          <li title="Un éélment de list li">Vert</li>
+          <li title="Un éélment de list li">Bleu</li>
+        </ul>
+        <button class="btn btn-danger btn-block" title="Un bouton" >Commander</button>
+      </div>
+    </div>
+  </div>
+</div>

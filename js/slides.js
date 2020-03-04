@@ -8,7 +8,6 @@ let player;
   const numSlides = document.querySelector("#numSlides");
   const ytBtn = document.querySelector("#yt");
   const ytIframe = document.querySelector("#ytIframe");
-  console.log(player);
   const ytOverlay = document.querySelector("#ytOverlay");
   ytOverlay.addEventListener("click", function (evt) {
     evt.stopPropagation();
@@ -24,7 +23,6 @@ let player;
       ytOverlay.style.display = "none";
     } else {
       const slide = slides[current];
-      console.log(slide);
       const url = "//www.youtube.com/embed/"
         + slide.ytid
         + "?autoplay=1&rel=0&controls=0&start="
@@ -58,7 +56,7 @@ let player;
   let ytidDefault;
   sections.forEach((slide, index) => {
     const type = slide.classList.contains("example") ? "example" : "page";
-    const { page, intro, html, css, js, ytid, begin, end } = slide.dataset;
+    const { page, intro, html, css, js, ytid, begin, end, dev } = slide.dataset;
     ytidDefault = ytid || ytidDefault;
     slides.push({
       slide,
@@ -71,7 +69,8 @@ let player;
       ytid: ytidDefault,
       begin,
       end,
-      isLoaded: false
+      isLoaded: false,
+      dev
     });
   });
 
@@ -432,6 +431,9 @@ let player;
     const containerRenderer = slideObject.slide.querySelector(
       ".container-renderer"
     );
+    // if (slideObject.dev) {
+    //   openDevTools();
+    // }
     containerRenderer.innerHTML = "";
     const win = document.createElement("iframe");
     win.setAttribute("frameborder", 0);
@@ -458,8 +460,7 @@ let player;
         }
       });
       Promise.all(promises).then(function (scripts) {
-        scripts.forEach(s => console.log(s));
-        console.log(win.contentWindow.document.body);
+        // scripts.forEach(s => console.log(s));
         const style = document.createElement("style");
         style.classList.add("added");
         style.innerText = slideObject.cssEditor.getValue();
@@ -472,6 +473,7 @@ let player;
         link.setAttribute("rel", "stylesheet");
         link.setAttribute("href", "../css/output.css");
         setTimeout(_ => {
+          const htmlContainer = win.contentWindow.document.createElement('div');
           win.contentWindow.document.body.innerHTML = slideObject.htmlEditor.getValue();
           win.contentWindow.document.head.appendChild(style);
           win.contentWindow.document.body.appendChild(script);
@@ -577,6 +579,19 @@ let player;
       grads.append(grad);
     });
   }
+
+  // function openDevTools() {
+  //   const evt = new KeyboardEvent("keydown", {
+  //     keyCode: 123,
+  //     key: "F12",
+  //     code: "F12",
+  //     witch: 123
+  //   })
+  //   document.dispatchEvent(
+  //     evt
+  //   );
+  //   console.log('event dispatched', evt)
+  // }
 
   setTimeout(resizeGraduations, 30);
   // Allez au premier slide.

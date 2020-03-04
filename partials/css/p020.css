@@ -1,0 +1,18 @@
+.ctn {
+  padding: 0.2em;
+  border: 1px solid gray;
+  min-height: 60vh;
+  font-size: 1.2em;
+}
+.out {
+  height: 1.2em;
+  margin: 0.8em 0.4em;
+  padding: 0.4em;
+  border: 1px solid gray;
+}
+.ctn select {
+  font-size: 1.3em;
+  padding: 0.1em 0.5em;
+  display: block;
+  margin: 0.2em auto;
+}

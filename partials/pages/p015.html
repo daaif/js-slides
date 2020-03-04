@@ -1,0 +1,53 @@
+<div class="container-lg">
+  <h1 class="text-center">
+    Récupérer la référence d'un élément HTML
+  </h1>
+  <p class="small">
+    On utilise la méthode <code>document.getElementById()</code> ou
+    <code>document.querySelctor()</code>. Pour la première, on passe l'<mark
+      >id</mark
+    >
+    de l'élément, pour la deuxième on passe un sélecteur <mark>CSS</mark>.
+    <br />
+    Pour modifier le contenu d'un élément, on peut utiliser l'un des attributs
+    <code>element.innerHTML</code> ou <code>element.innerText</code> !!
+  </p>
+  <div class="row small">
+    <div class="col-md-6">
+      <textarea class="myCode">
+<div class="ctn" id="box">
+  <h3>Mon 1<sup>er</sup> titre </h3>
+  <p>
+    Lorem, ipsum dolor sit amet consectetur 
+    adipisicing elit. Vitae, quidem?
+  </p>
+  <ul>
+    <li>Rouge</li>
+    <li>Vert</li>
+    <li>Bleu</li>
+  </ul>
+  <button class="btn btn-danger btn-block">
+    Commander
+  </button>
+</div>
+      </textarea>
+    </div>
+    <div class="col-md-6">
+      <div class="ctn" id="box" title="div avrc id='ctn' class='ctn'">
+        <h3 title="Balise h3">Mon 1<sup>er</sup> titre</h3>
+        <p title="Un paragraphe">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae,
+          quidem?
+        </p>
+        <ul title="Une liste non ordonnée ul">
+          <li title="Un éélment de list li">Rouge</li>
+          <li title="Un éélment de list li">Vert</li>
+          <li title="Un éélment de list li">Bleu</li>
+        </ul>
+        <button class="btn btn-danger btn-block" title="Un bouton">
+          Commander
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

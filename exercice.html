@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <style>
+      .myContainer  {
+        background-image: url('../../images/tournesol_1024x1024.png');
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .myContainer .box {
+        width: 10%;
+        height: 10%;
+        background-color: #000;
+        opacity: 0.5;
+      }
+      
+    </style>
+</head>
+<body>
+  <div class="container-lg">
+   <button class="btn btn-primary btn-block my-3">Dessiner</button>
+  
+    <div class="row">
+      <div class="col-sm-6">
+        <div >
+          <img src="../../images/tournesol_1024x1024.png" class="img-fluid" alt="fuits et légumes">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="myContainer">
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    function mover(box) {
+      box.style.opacity = Math.random() * 0.5;
+    }
+  </script>
+    </div>
+    <p class="p-3">Sur l'image de droite sont superposés 100 carrés disposés en matrice
+      10x10. Ces carrés ont une couleur <mark>grise</mark> et une opacité de 
+      <mark>0.5</mark>. Quand l'utilisateur clique sur le bouton en haut, vous allez 
+      récupérer tous ces carrés, les parcourir dans une boucle et changer pour chacun
+      sa couleur et son opacité de manière aléatoire. <span class="text-muted">
+        <code>Math.random()</code> retourne un nombre aléatoire entre 0 et 1. Pour 
+        la couleur, on utilisera la fonction CSS <code>hsla(h, s, l, a)</code>, ou il
+        faut générer aléatoirement <mark>h</mark> [0°, 360°] et <mark>a</mark> [0, 1]. 
+        Inspectez cette page et reconstruire votre propre exemple.
+      </span></p>
+
+    </div>
+  
+</body>
+</html>
