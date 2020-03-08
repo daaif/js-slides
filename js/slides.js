@@ -1,4 +1,3 @@
-let player;
 (async function () {
   const config = await fetch("config.json").then(resp => resp.json());
   const templates = await fetch("templates.html").then(resp => resp.text());
@@ -23,6 +22,7 @@ let player;
       ytOverlay.style.display = "none";
     } else {
       const slide = slides[current];
+      // console.log(slide);
       const url = "//www.youtube.com/embed/"
         + slide.ytid
         + "?autoplay=1&rel=0&controls=0&start="
@@ -34,10 +34,10 @@ let player;
       ytBtn.innerHTML = "<i class='far fa-window-close'></i>";
       ytIframe.style.display = "";
       // ytOverlay.style.display = "";
-      if (slide.begin && slide.end) {
+      if (slide.begin !== undefined && slide.end != undefined) {
         setTimeout(() => {
           this.click();
-        }, (slide.end * 1 - slide.begin * 1) * 1000)
+        }, (slide.end - slide.begin) * 1000)
       }
 
     }
@@ -56,7 +56,7 @@ let player;
   let ytidDefault;
   sections.forEach((slide, index) => {
     const type = slide.classList.contains("example") ? "example" : "page";
-    const { page, intro, html, css, js, ytid, begin, end, dev } = slide.dataset;
+    const { page, intro, html, css, js, ytid, begin, end } = slide.dataset;
     ytidDefault = ytid || ytidDefault;
     slides.push({
       slide,
@@ -67,12 +67,12 @@ let player;
       css,
       js,
       ytid: ytidDefault,
-      begin,
-      end,
-      isLoaded: false,
-      dev
+      begin: begin !== undefined ? timeInSeconds(begin) : begin,
+      end: end !== undefined ? timeInSeconds(end) : end,
+      isLoaded: false
     });
   });
+  // console.log(slides);
 
   grads.addEventListener("click", function (evt) {
     const position = parseInt((slides.length * evt.clientX) / this.clientWidth);
@@ -120,7 +120,7 @@ let player;
     } else {
       if (slide.type === "example") render(slide);
     }
-    slide.begin ?
+    slide.begin !== undefined ?
       ytBtn.classList.remove('d-none') :
       ytBtn.classList.add('d-none');
     ytIframe.style.display = "none";
@@ -431,9 +431,6 @@ let player;
     const containerRenderer = slideObject.slide.querySelector(
       ".container-renderer"
     );
-    // if (slideObject.dev) {
-    //   openDevTools();
-    // }
     containerRenderer.innerHTML = "";
     const win = document.createElement("iframe");
     win.setAttribute("frameborder", 0);
@@ -460,7 +457,8 @@ let player;
         }
       });
       Promise.all(promises).then(function (scripts) {
-        // scripts.forEach(s => console.log(s));
+        scripts.forEach(s => console.log(s));
+        // console.log(win.contentWindow.document.body);
         const style = document.createElement("style");
         style.classList.add("added");
         style.innerText = slideObject.cssEditor.getValue();
@@ -473,7 +471,6 @@ let player;
         link.setAttribute("rel", "stylesheet");
         link.setAttribute("href", "../css/output.css");
         setTimeout(_ => {
-          const htmlContainer = win.contentWindow.document.createElement('div');
           win.contentWindow.document.body.innerHTML = slideObject.htmlEditor.getValue();
           win.contentWindow.document.head.appendChild(style);
           win.contentWindow.document.body.appendChild(script);
@@ -580,20 +577,21 @@ let player;
     });
   }
 
-  // function openDevTools() {
-  //   const evt = new KeyboardEvent("keydown", {
-  //     keyCode: 123,
-  //     key: "F12",
-  //     code: "F12",
-  //     witch: 123
-  //   })
-  //   document.dispatchEvent(
-  //     evt
-  //   );
-  //   console.log('event dispatched', evt)
-  // }
-
   setTimeout(resizeGraduations, 30);
   // Allez au premier slide.
   location.hash = 0;
+
+  /**
+   * 
+   * @param {string} st ex. 01:23:08
+   * @returns number time in seconds
+   */
+  function timeInSeconds(st) {
+    const parts = st.split(':').reverse()
+    let t = 0;
+    for (let i = 0; i < parts.length; i++) {
+      t += parts[i] * 60 ** i;
+    }
+    return t;
+  }
 })();
